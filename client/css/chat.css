@@ -1,0 +1,19 @@
+.align-left { float: left; }
+.align-right { float: right; }
+.space-60 { height: 60px; }
+.space-30 { height: 30px; }
+.space-15 { height: 15px; }
+
+body {
+	background-color: #393939;
+}
+
+h1 {
+	color: #e18728;
+	font-family: 'Inconsolata';
+}
+
+p {
+	font-family: 'Inconsolata';
+	color: #ddd;
+}
