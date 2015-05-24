@@ -3,7 +3,7 @@ var connect = require('connect');
 var serveStatic = require('serve-static');
 
 var ip = 'localhost';
-var port = 80;
+var port = process.env.PORT || 80;
 
 var app = connect();
 app.use(serveStatic('client'));
