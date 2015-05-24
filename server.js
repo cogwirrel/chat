@@ -2,7 +2,7 @@ var http = require('http');
 var connect = require('connect');
 var serveStatic = require('serve-static');
 
-var ip = '192.168.1.224';
+var ip = '192.168.0.16';
 var port = 1337;
 
 var app = connect();
@@ -15,9 +15,18 @@ httpServer.listen(port, ip);
 
 // Socket stuff
 io.on('connection', function(socket) {
-	console.log("User connected");
-
+	
+	// Receive a message - bounce it back to everyone!
 	socket.on('msg', function(msg) {
-		console.log(msg.text);
+		io.emit('msg', {
+			id: msg.id,
+			ch: msg.ch
+		});
+	});
+
+	socket.on('backspace', function(msg) {
+		io.emit('backspace', {
+			id: msg.id
+		});
 	});
 });

@@ -20,12 +20,14 @@
 	</head>
 	<body>
 
-		<div class="col-md-12">
-			<h1>Chat</h1>
-			<p>Hello</p>
-			<form action="">
-				<input id="messagebox" autocomplete="off"></input>
-			</form>
+		<div class="container">
+			<div class="col-md-12">
+				<h1>Chat</h1>
+				<ul id="chat-list"></ul>
+				<form id="chat-form" action="">
+					<input id="chat-input" autocomplete="off"></input>
+				</form>
+			</div>
 		</div>
 
 		<script src="https://cdn.socket.io/socket.io-1.0.6.js"></script>
