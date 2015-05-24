@@ -2,8 +2,8 @@ var http = require('http');
 var connect = require('connect');
 var serveStatic = require('serve-static');
 
-var ip = '192.168.0.16';
-var port = 1337;
+var ip = 'jackchat-oh-yeah.herokuapp.com';
+var port = process.env.PORT || 1337;
 
 var app = connect();
 app.use(serveStatic('client'));
