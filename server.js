@@ -3,10 +3,16 @@ var connect = require('connect');
 var serveStatic = require('serve-static');
 
 var ip = '0.0.0.0';
-var port = process.env.PORT;
+var port = process.env.PORT || 1337;
 
 var app = connect();
-app.use(serveStatic('client'));
+
+var serve = serveStatic('client');
+
+app.use(function(req, res) {
+	console.log(req.url);
+	serve(req, res);
+});
 
 var httpServer = http.createServer(app);
 

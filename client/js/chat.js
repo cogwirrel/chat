@@ -7,6 +7,32 @@ var guid = function() {
 	});
 };
 
+/* Returns a number between lower and upper, inclusive */
+var random = function (lower, upper) {
+  return lower + Math.floor(Math.random()*(upper + 1 - lower));
+}
+
+/* Returns a random element from the given array */
+var randomElement = function (array) {
+  return array[ random(0, array.length - 1) ];
+}
+
+var randomColour = function() {
+	var colours = [
+		'#0085c3',
+		'#7ab800',
+		'#f2af00',
+		'#dc5034',
+		'#ce1126',
+		'#b7295a',
+		'#71c6c1',
+		'#5482ab',
+		'#009bbb',
+		'#eeeeee',
+	];
+	return randomElement(colours);
+};
+
 $(document).ready(function() {
 
 	var id = guid();
@@ -24,6 +50,7 @@ $(document).ready(function() {
 			$('#' + msg.id).append(msg.ch);
 		} else {
 			$('#chat-list').append('<li id="' + msg.id + '">' + msg.ch + '</li>');
+			$('#' + msg.id).css({'color': randomColour()});
 			var chatList = document.getElementById('chat-list');
 			chatList.scrollTop = chatList.scrollHeight;
 		}
